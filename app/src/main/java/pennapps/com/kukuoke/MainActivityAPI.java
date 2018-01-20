@@ -1,4 +1,4 @@
-package com.example.felix.lastfm;
+package pennapps.com.kukuoke;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityAPI extends AppCompatActivity {
 
     //TextView tv;
     //ImageView iv;
@@ -137,10 +137,8 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         });
-
 
         getArtistInfoBtn = (Button) findViewById(R.id.getArtistInfo);
         getArtistInfoBtn.setOnClickListener(new View.OnClickListener() {

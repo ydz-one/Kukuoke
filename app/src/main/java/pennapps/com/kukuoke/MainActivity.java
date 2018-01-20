@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static FirebaseUser FBU = null;
 
+    public static boolean tab1AdapterInitialized = false;
+    public static boolean tab2AdapterInitialized = false;
+    public static boolean tab3AdapterInitialized = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

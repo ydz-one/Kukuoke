@@ -7,6 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
 import pennapps.com.kukuoke.R;
 
 /**
@@ -19,20 +24,17 @@ public class CustomListAdapter extends ArrayAdapter {
     private final Activity context;
 
     //to store the list of songs
-    private final String[] songArray;
+    private final List<JSONObject> songs;
 
-    //to store the list of artists
-    private final String[] artistArray;
 
-    public CustomListAdapter(Activity context, String[] songArray, String[] artistArray){
+    public CustomListAdapter(Activity context, List<JSONObject> songs){
 
         // in actual implementation, use a different array than songArray, because there can be
         // different songs with the same name
-        super(context, R.layout.listview_row, songArray);
+        super(context, R.layout.listview_row, songs);
 
         this.context = context;
-        this.songArray = songArray;
-        this.artistArray = artistArray;
+        this.songs = songs;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -40,12 +42,16 @@ public class CustomListAdapter extends ArrayAdapter {
         View rowView=inflater.inflate(R.layout.listview_row, null,true);
 
         //this code gets references to objects in the listview_row.xml file
-        TextView nameTextField = (TextView) rowView.findViewById(R.id.tv_song_name);
-        TextView infoTextField = (TextView) rowView.findViewById(R.id.tv_artist_name);
+        TextView songTextField = (TextView) rowView.findViewById(R.id.tv_song_name);
+        TextView artistTextField = (TextView) rowView.findViewById(R.id.tv_artist_name);
 
         //this code sets the values of the objects to values from the arrays
-        nameTextField.setText(songArray[position]);
-        infoTextField.setText(artistArray[position]);
+        try {
+            songTextField.setText(songs.get(position).get("name").toString());
+            artistTextField.setText(songs.get(position).get("artist").toString());
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
 
         return rowView;
 

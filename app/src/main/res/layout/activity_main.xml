@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="zyud.com.swipeviewwithtabs.MainActivity">
+    android:background="#000000"
+    tools:context="pennapps.com.kukuoke.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -30,13 +31,19 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:tabIndicatorColor="@color/green"
+            app:tabSelectedTextColor="@color/hotPink"
+            app:tabTextColor="@color/yellow"
+            >
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab_text_1" />
+                android:text="@string/tab_text_1"
+                />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem2"

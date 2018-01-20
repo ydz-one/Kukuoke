@@ -7,6 +7,9 @@
     <color name="hotPink">#ff00c6</color>
     <color name="orange">#ff7f00</color>
     <color name="green">#53ffbc</color>
+    <color name="yellow">#f1c232</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="darkGrey">#1c1c1c</color>
+    <color name="lightGrey">#555555</color>
 </resources>

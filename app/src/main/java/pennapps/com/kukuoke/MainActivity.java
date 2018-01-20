@@ -1,5 +1,7 @@
 package pennapps.com.kukuoke;
 
+import android.graphics.Color;
+import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +13,9 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +34,28 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    public static FirebaseUser FBU = null;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setSelectedTabIndicatorColor(Color.GREEN);
+        tabLayout.setTabTextColors(Color.BLACK, Color.CYAN);
+
+        tabItem = (TabItem) findViewById(R.id.tabItem);
+        tabItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tabItem.setBackgroundColor(Color.GRAY);
+            }
+        });
+        */
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

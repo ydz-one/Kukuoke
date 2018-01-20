@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "249520669428",
+    "firebase_url": "https://kukuoke-team.firebaseio.com",
+    "project_id": "kukuoke-team",
+    "storage_bucket": "kukuoke-team.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249520669428:android:3cf8b762a0127e4c",
+        "android_client_info": {
+          "package_name": "pennapps.com.kukuoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249520669428-2sgpnol95rmov3cl3j4m7jhl8lsh939r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXnGkBgbDV4xS1nTeZHhXCWCbK_dq5uQM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:padding="16dp" android:id="@+id/ll_listview_item">
+    android:layout_height="wrap_content" android:padding="16dp">
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,14 +15,17 @@
             android:id="@+id/tv_song_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24dp"
-            android:textStyle="bold"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="#dedede"/>
 
         <TextView
             android:id="@+id/tv_artist_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"/>
+            android:textSize="18sp"
+            android:textColor="#777777"/>
 
     </LinearLayout>
 

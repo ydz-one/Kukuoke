@@ -23,7 +23,16 @@
             android:layout_height="match_parent"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textColorHighlight="@color/yellow"
             android:layout_marginRight="5sp" />
+
+        <ProgressBar
+            android:id="@+id/indeterminateBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
     </LinearLayout>
 
 </LinearLayout>

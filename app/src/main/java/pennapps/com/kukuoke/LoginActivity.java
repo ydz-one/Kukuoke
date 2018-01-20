@@ -72,8 +72,6 @@ public class LoginActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d("ERROR1", e.getMessage());
-                Log.d("ERROR2", e.toString());
                 Toast.makeText(LoginActivity.this, "Failed image", Toast.LENGTH_LONG).show();
             }
         });
@@ -167,9 +165,9 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void goToSignUp() {
 
-        //Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
 
-        //startActivity(intent);
+        startActivity(intent);
 
     }
 }

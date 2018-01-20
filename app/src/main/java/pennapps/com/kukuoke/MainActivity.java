@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     public static FirebaseUser FBU = null;
+    private Toolbar toolbar;
 
 
     @Override
@@ -56,9 +57,11 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 
+        if (toolbar == null) {
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+        }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

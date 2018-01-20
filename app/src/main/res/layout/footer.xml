@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingTop="16dp"
-    android:paddingBottom="24dp"
+    android:paddingBottom="16dp"
     android:orientation="horizontal"
     android:gravity="center">
 
@@ -18,12 +18,12 @@
 
         <TextView
             android:text="ADD SONG"
-            android:id="@+id/footer_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14dip"
+            android:id="@+id/tv_add_song"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_marginRight="5dip" />
+            android:layout_marginRight="5sp" />
     </LinearLayout>
 
 </LinearLayout>

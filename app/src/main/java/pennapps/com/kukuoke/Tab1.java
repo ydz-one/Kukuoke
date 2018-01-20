@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-
-import pennapps.com.kukuoke.R;
+import android.widget.TextView;
 
 /**
  * Created by zyud on 1/19/2018.
@@ -22,7 +20,7 @@ public class Tab1 extends Fragment {
     private String[] artistArray = {"Nat King Cole", "Justin Bieber", "Gabrielle", "Savage Garden",
             "Celine Dion", "George Michael", "George Michael"};
     private ListView listView;
-    private Button addSongBotton;
+    private TextView addSongTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,28 +29,20 @@ public class Tab1 extends Fragment {
 
         CustomListAdapter cla = new CustomListAdapter(getActivity(), songArray, artistArray);
         listView = (ListView) rootView.findViewById(R.id.lv_tab1);
-//        addSongBotton = (Button) rootView.findViewById(R.id.btn_tab1_add_song);
         listView.setAdapter(cla);
 
         View footerView =  ((LayoutInflater)getContext().getSystemService(getContext()
                 .LAYOUT_INFLATER_SERVICE)).inflate(R.layout.footer, null, false);
         listView.addFooterView(footerView);
 
-//        addSongBotton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // Perform action on click
-//                Intent intent = new Intent(getContext(), AddSongActivity.class);
-//
-//                // currentContext.startActivity(activityChangeIntent);
-//                startActivity(intent);
-//            }
-//        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), AddSongActivity.class);
-                startActivity(intent);
+                if (position == songArray.length) {
+                    Intent intent = new Intent(getActivity(), AddSongActivity.class);
+                    intent.putExtra("tabNum","tab1");
+                    startActivity(intent);
+                }
             }
         });
 

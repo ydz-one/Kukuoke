@@ -1,10 +1,12 @@
 package pennapps.com.kukuoke;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import pennapps.com.kukuoke.R;
@@ -27,6 +29,22 @@ public class Tab3 extends Fragment {
         CustomListAdapter cla = new CustomListAdapter(getActivity(), songArray, artistArray);
         listView = (ListView) rootView.findViewById(R.id.lv_tab3);
         listView.setAdapter(cla);
+
+        View footerView =  ((LayoutInflater)getContext().getSystemService(getContext()
+                .LAYOUT_INFLATER_SERVICE)).inflate(R.layout.footer, null, false);
+        listView.addFooterView(footerView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == songArray.length) {
+                    Intent intent = new Intent(getActivity(), AddSongActivity.class);
+                    intent.putExtra("tabNum","tab3");
+                    startActivity(intent);
+                }
+            }
+        });
+
 
         return rootView;
     }

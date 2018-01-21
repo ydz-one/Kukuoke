@@ -67,8 +67,9 @@ public class FriendsActivity extends AppCompatActivity {
                                 Log.d("EMAIL", email);
                                 cb.setText(email + " " + name);
                                 cb.setTextColor(Color.GREEN);
+                                arrCB.add(cb);
                             } catch (Exception e) {
-                                Toast.makeText(FriendsActivity.this, "Cannot find user with this unique id", Toast.LENGTH_LONG).show();
+
                             }
                         }
 
@@ -78,7 +79,6 @@ public class FriendsActivity extends AppCompatActivity {
                         }
                     });
 
-                    arrCB.add(cb);
                     linLayout.addView(cb);
                 }
 

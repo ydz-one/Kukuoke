@@ -27,20 +27,6 @@ public class User {
         maybeSongs = new ArrayList<>();
         nopeSongs = new ArrayList<>();
         friends = new ArrayList<>();
-
-        try {
-            JSONObject newSong1 = new JSONObject();
-            newSong1.put("name", "my love");
-            newSong1.put("artist", "westlife");
-
-            JSONObject newSong2 = new JSONObject();
-            newSong2.put("name", "season in the sun");
-            newSong2.put("artist", "westlife");
-            goodSongs.add(newSong1.toString());
-            goodSongs.add(newSong2.toString());
-        } catch (Exception e) {
-
-        }
     }
 
     //getters

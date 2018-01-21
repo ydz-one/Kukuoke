@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,12 +60,16 @@ public class FriendsActivity extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            String name = dataSnapshot.child(s).child("name").getValue().toString();
-                            String email = dataSnapshot.child(s).child("email").getValue().toString();
-                            Log.d("NAME", name);
-                            Log.d("EMAIL", email);
-                            cb.setText(email + " " + name);
-                            cb.setTextColor(Color.GREEN);
+                            try {
+                                String name = dataSnapshot.child(s).child("name").getValue().toString();
+                                String email = dataSnapshot.child(s).child("email").getValue().toString();
+                                Log.d("NAME", name);
+                                Log.d("EMAIL", email);
+                                cb.setText(email + " " + name);
+                                cb.setTextColor(Color.GREEN);
+                            } catch (Exception e) {
+                                Toast.makeText(FriendsActivity.this, "Cannot find user with this unique id", Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         @Override

@@ -74,9 +74,9 @@ public class Tab2 extends Fragment {
     private ActionMode.Callback actionModeCallbacks = new ActionMode.Callback() {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu){
-            menu.add(0, 0, 0,"Delete");
-            menu.add(0, 1, 1,"G");
-            menu.add(0, 2, 2,"N");
+            menu.add(0, 0, 2,"Del");
+            menu.add(0, 1, 0,"<");
+            menu.add(0, 2, 1,">");
             return true;
         }
 
@@ -122,14 +122,10 @@ public class Tab2 extends Fragment {
     };
 
     private void fillSongs(){
-        userSongs.addSong(getContext(), "Never Gonna Give You Up",
-                "Rick Astley", tabNum);
-        userSongs.addSong(getContext(), "Kiss", "Prince", tabNum);
-        userSongs.addSong(getContext(), "Born to be Wild", "Steppenwolf", tabNum);
-//        userSongs.addSong(getContext(), "Faith", "George Michael", tabNum);
-//        userSongs.addSong(getContext(), "Thriller", "Michael Jackson", tabNum);
-//        userSongs.addSong(getContext(), "Total Eclipse of the Heart", "Bonnie Tyler", tabNum);
-//        userSongs.addSong(getContext(), "Girls Just Wanna Have Fun", "Cyndi Lauper", tabNum);
-//        userSongs.addSong(getContext(), "Come Together", "The Beatles", tabNum);
+        userSongs.addSong(getContext(), "Faith", "George Michael", tabNum);
+        userSongs.addSong(getContext(), "Thriller", "Michael Jackson", tabNum);
+        userSongs.addSong(getContext(), "Total Eclipse of the Heart", "Bonnie Tyler", tabNum);
+        userSongs.addSong(getContext(), "Girls Just Wanna Have Fun", "Cyndi Lauper", tabNum);
+        userSongs.addSong(getContext(), "Come Together", "The Beatles", tabNum);
     }
 }

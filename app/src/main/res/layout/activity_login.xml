@@ -15,13 +15,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="250px" />
+        android:layout_marginTop="220px" />
 
     <ImageView
         android:id="@+id/kukuokeLogo"
-        android:layout_width="1270px"
-        android:layout_height="231px"
-        android:layout_marginTop="90px"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingTop="35px"
         android:adjustViewBounds="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -35,13 +35,12 @@
         android:hint="  email"
         android:textColorHint="@color/lightGrey"
         android:textColor="@color/lighterGrey"
-
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="30dp"
         android:backgroundTint="@color/lightGrey"
-        android:layout_marginBottom="600px"/>
+        app:layout_constraintTop_toBottomOf="@id/kukuokeLogo"/>
 
     <EditText
         android:id="@+id/passwordField"
@@ -51,7 +50,6 @@
         android:hint="  password"
         android:textColorHint="@color/lightGrey"
         android:textColor="@color/lighterGrey"
-
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -63,7 +61,7 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:ems="12"
         android:text="LOGIN"
         app:layout_constraintLeft_toLeftOf="parent"

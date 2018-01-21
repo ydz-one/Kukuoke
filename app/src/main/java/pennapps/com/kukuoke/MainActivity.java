@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
-                intent1.putExtra("uid", FBU.getUid());
                 startActivity(intent1);
                 return true;
             case R.id.action_home:

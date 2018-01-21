@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(LoginActivity.this, "Failed image", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Failed image in Login 1", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(LoginActivity.this, "Failed image", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Failed image in Login 2", Toast.LENGTH_LONG).show();
             }
         });
 

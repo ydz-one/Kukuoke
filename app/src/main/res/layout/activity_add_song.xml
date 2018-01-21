@@ -7,11 +7,65 @@
     android:background="#000000"
     tools:context="pennapps.com.kukuoke.AddSongActivity">
 
-    <TextView
-        android:id="@+id/tv_add_song_display"
-        android:text="ADD SONG DIALOG"
-        android:textColor="#666666"
+    <ScrollView
+        android:id="@+id/scrollViewAddSong"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llAddSong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/trackSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="please input a song"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/trackSearchBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="search track" />
+
+            <EditText
+                android:id="@+id/artistSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="please input an artist"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/artistSearchBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="search artist" />
+
+            <EditText
+                android:id="@+id/albumSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="please input an album"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/albumSearchBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="search album" />
+
+            <LinearLayout
+                android:id="@+id/songsdislpay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

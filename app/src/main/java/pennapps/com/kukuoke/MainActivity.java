@@ -110,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_image:
                 return true;
+            case R.id.action_user:
+                Intent intent2 = new Intent(MainActivity.this, FriendsActivity.class);
+                startActivity(intent2);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

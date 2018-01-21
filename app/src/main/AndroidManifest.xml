@@ -26,7 +26,8 @@
         <activity android:name=".AddSongActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".DisplaySongActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".FriendsActivity"></activity>
     </application>
 
 </manifest>

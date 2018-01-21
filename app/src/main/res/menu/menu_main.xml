@@ -67,21 +67,30 @@
         app:showAsAction="always"></item>
 
     <item
-        android:id="@+id/action_search"
-        android:orderInCategory="700"
-        android:title="User"
-        android:icon="@drawable/ic_search_icon"
-        android:iconTint="@color/lightGrey"
-        app:showAsAction="always"></item>
-
-    <item
         android:id="@+id/action_settings"
         android:checkable="true"
         android:icon="@drawable/ic_settings_icon"
         android:iconTint="@color/lightGrey"
-        android:orderInCategory="800"
+        android:orderInCategory="700"
         android:title="@string/action_settings"
         app:showAsAction="always" />
 
+    <!-- invisible icons -->
 
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="700"
+        android:title="User"
+        android:icon="@drawable/ic_rectangle_icon"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
+
+
+    <item
+        android:id="@+id/action_bar"
+        android:orderInCategory="700"
+        android:title="User"
+        android:icon="@drawable/ic_rectangle_icon"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
 </menu>

@@ -127,9 +127,8 @@ public class SettingsActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 return true;
-            case R.id.action_home:
+            case R.id.action_image:
                 Intent intent1 = new Intent(SettingsActivity.this, MainActivity.class);
-                intent1.putExtra("uid", MainActivity.FBU.getUid());
                 startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);

@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent1);
                 return true;
-            case R.id.action_home:
+            case R.id.action_image:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

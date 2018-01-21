@@ -2,20 +2,21 @@ package pennapps.com.kukuoke;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class User {
 
-    private String uid;
-    private String name;
-    private String email;
+    public String uid;
+    public String name;
+    public String email;
 
-    private List<JSONObject> goodSongs;
-    private List<JSONObject> maybeSongs;
-    private List<JSONObject> nopeSongs;
-    private List<JSONObject> friends;
+    public List<String> goodSongs;
+    public List<String> maybeSongs;
+    public List<String> nopeSongs;
+    public List<String> friends;
 
     public User(String uid, String email, String name) {
         this.uid = uid;
@@ -26,6 +27,20 @@ public class User {
         maybeSongs = new ArrayList<>();
         nopeSongs = new ArrayList<>();
         friends = new ArrayList<>();
+
+        try {
+            JSONObject newSong1 = new JSONObject();
+            newSong1.put("name", "my love");
+            newSong1.put("artist", "westlife");
+
+            JSONObject newSong2 = new JSONObject();
+            newSong2.put("name", "season in the sun");
+            newSong2.put("artist", "westlife");
+            goodSongs.add(newSong1.toString());
+            goodSongs.add(newSong2.toString());
+        } catch (Exception e) {
+
+        }
     }
 
     //getters
@@ -33,9 +48,9 @@ public class User {
     public String getName() { return name; }
     public String getEmail() { return email; }
 
-    public List<JSONObject> getGoodSongs() { return goodSongs; }
-    public List<JSONObject> getMaybeSongs() { return maybeSongs; }
-    public List<JSONObject> getNopeSongs() { return nopeSongs; }
-    public List<JSONObject> getFriends() { return friends; }
+    public List<String> getGoodSongs() { return goodSongs; }
+    public List<String> getMaybeSongs() { return maybeSongs; }
+    public List<String> getNopeSongs() { return nopeSongs; }
+    public List<String> getFriends() { return friends; }
 
 }

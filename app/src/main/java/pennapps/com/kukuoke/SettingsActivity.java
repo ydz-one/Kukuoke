@@ -72,6 +72,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void startSignOut() {
 
         FirebaseAuth.getInstance().signOut();
+        MainActivity.FBU = null;
         startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
 
     }

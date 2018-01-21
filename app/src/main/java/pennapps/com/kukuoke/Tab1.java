@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,17 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by zyud on 1/19/2018.
@@ -128,8 +140,44 @@ public class Tab1 extends Fragment {
 //        userSongs.addSong(getContext(), "Born to be Wild", "Steppenwolf", tabNum);
 //        userSongs.addSong(getContext(), "Faith", "George Michael", tabNum);
 //        userSongs.addSong(getContext(), "Thriller", "Michael Jackson", tabNum);
-        userSongs.addSong(getContext(), "Total Eclipse of the Heart", "Bonnie Tyler", tabNum);
-        userSongs.addSong(getContext(), "Girls Just Wanna Have Fun", "Cyndi Lauper", tabNum);
-        userSongs.addSong(getContext(), "Come Together", "The Beatles", tabNum);
+
+
+        String str = FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child("goodSongs").getKey();
+        Log.d("KEY", str);
+
+        FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child("goodSongs").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterator<DataSnapshot> itr = dataSnapshot.getChildren().iterator();
+
+                ArrayList<JSONObject> arr = new ArrayList<>();
+                while (itr.hasNext()) {
+                    String s = itr.next().getValue().toString();
+                    try {
+                        arr.add(new JSONObject(s));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                for (JSONObject jo : arr) {
+                    try {
+                        userSongs.addSong(getContext(), jo.get("name").toString(), jo.get("artist").toString(), tabNum);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //userSongs.addSong(getContext(), "Total Eclipse of the Heart", "Bonnie Tyler", tabNum);
+        //userSongs.addSong(getContext(), "Girls Just Wanna Have Fun", "Cyndi Lauper", tabNum);
+        //userSongs.addSong(getContext(), "Come Together", "The Beatles", tabNum);
     }
 }

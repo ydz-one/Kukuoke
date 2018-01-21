@@ -1,6 +1,7 @@
 package pennapps.com.kukuoke;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,9 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,12 +29,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
+import android.widget.Toast;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -48,6 +46,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     private TextView mUsersName;
     private TextView mUsersEmail;
+    private TextView mUsersUniqueId;
+
+    private String usersUniqueID = MainActivity.FBU.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         mChickenIconGlow = (ImageView) findViewById(R.id.chickenIconGlow);
 
-        //String usersId = FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child(name);
         FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -68,6 +68,9 @@ public class SettingsActivity extends AppCompatActivity {
                 mUsersEmail = (TextView) findViewById(R.id.usersEmailText);
                 mUsersEmail.setText(usersEmail);
 
+                mUsersUniqueId = (TextView) findViewById(R.id.getUniqueIdText);
+                mUsersUniqueId.setText(usersUniqueID);
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -76,6 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         mUsersName = (TextView) findViewById(R.id.usersNameText);
         mUsersEmail = (TextView) findViewById(R.id.usersEmailText);
+        mUsersUniqueId = (TextView) findViewById(R.id.getUniqueIdText);
 
         mSignOutButton = (Button) findViewById(R.id.signOutButton);
         mSignOutButton.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +100,13 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(SettingsActivity.this, "Failed image in Settings", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        mUsersUniqueId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                copyUniqueId();
             }
         });
     }
@@ -133,6 +144,16 @@ public class SettingsActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         MainActivity.FBU = null;
         startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
+
+    }
+
+    private void copyUniqueId() {
+        ClipboardManager clipboard = (ClipboardManager)
+                getSystemService(Context.CLIPBOARD_SERVICE);
+
+        ClipData clip = ClipData.newPlainText("myUID", usersUniqueID);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(this, "ID copied", Toast.LENGTH_SHORT).show();
 
     }
 

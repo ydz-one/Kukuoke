@@ -6,10 +6,38 @@
     android:layout_height="match_parent"
     tools:context="pennapps.com.kukuoke.FriendsActivity">
 
-    <ListView
-        android:id="@+id/friendsView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="60dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/frienduid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="please enter your friend uid"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/addFriendsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add friend" />
+
+        <Button
+            android:id="@+id/compareBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="compare with friends" />
+
+        <ScrollView
+            android:id="@+id/scrollFriends"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"></ScrollView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

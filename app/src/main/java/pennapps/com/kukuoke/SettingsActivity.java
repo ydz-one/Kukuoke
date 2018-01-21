@@ -86,8 +86,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        //Firebase fb = new Firebase("gs://kukuoke-team.appspot.com");
-
 
         mstorageRef.child("/chickeniconglow.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -111,18 +109,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
-//            intent1.putExtra("uid", FBU.getUid());
-//            startActivity(intent1);
-//            return true;
-//        }
 
         switch (item.getItemId()) {
             case R.id.action_settings:
@@ -130,11 +117,15 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.action_image:
                 Intent intent1 = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent1);
+                return true;
+            case R.id.action_user:
+                Intent intent2 = new Intent(SettingsActivity.this, FriendsActivity.class);
+                startActivity(intent2);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-//        return super.onOptionsItemSelected(item);
     }
 
     private void startSignOut() {

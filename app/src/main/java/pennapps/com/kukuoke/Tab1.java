@@ -38,7 +38,6 @@ public class Tab1 extends Fragment {
     public static CustomListAdapter claTab1;
     private boolean multiSelect = false;
     private int selectedItem;
-    private LinearLayout linearLayoutListViewItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,11 +54,9 @@ public class Tab1 extends Fragment {
 
         selectedItem = -1;
 
-        claTab1 = new CustomListAdapter(getActivity(), userSongs.getList(tabNum));
+        claTab1 = new CustomListAdapter(getActivity(), userSongs.getList(tabNum), R.layout.listview_row);
         listView = (ListView) rootView.findViewById(R.id.lv_tab1);
         listView.setAdapter(claTab1);
-
-        linearLayoutListViewItem = (LinearLayout) rootView.findViewById(R.id.ll_listview_item);
 
         View footerView =  ((LayoutInflater)getContext().getSystemService(getContext()
                 .LAYOUT_INFLATER_SERVICE)).inflate(R.layout.footer, null, false);
@@ -134,13 +131,6 @@ public class Tab1 extends Fragment {
     };
 
     private void fillSongs(){
-//        userSongs.addSong(getContext(), "Never Gonna Give You Up",
-//                "Rick Astley", tabNum);
-//        userSongs.addSong(getContext(), "Kiss", "Prince", tabNum);
-//        userSongs.addSong(getContext(), "Born to be Wild", "Steppenwolf", tabNum);
-//        userSongs.addSong(getContext(), "Faith", "George Michael", tabNum);
-//        userSongs.addSong(getContext(), "Thriller", "Michael Jackson", tabNum);
-
 
         String str = FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child("goodSongs").getKey();
         Log.d("KEY", str);
@@ -175,9 +165,5 @@ public class Tab1 extends Fragment {
 
             }
         });
-
-        //userSongs.addSong(getContext(), "Total Eclipse of the Heart", "Bonnie Tyler", tabNum);
-        //userSongs.addSong(getContext(), "Girls Just Wanna Have Fun", "Cyndi Lauper", tabNum);
-        //userSongs.addSong(getContext(), "Come Together", "The Beatles", tabNum);
     }
 }

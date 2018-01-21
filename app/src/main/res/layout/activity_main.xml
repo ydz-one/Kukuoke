@@ -24,9 +24,7 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title=" ">
-
-        </android.support.v7.widget.Toolbar>
+            app:title=" "/>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -36,8 +34,7 @@
             app:tabIndicatorColor="@color/green"
             app:tabSelectedTextColor="@color/hotPink"
             app:tabTextColor="@color/yellow"
-            app:tabIndicatorHeight="4dp"
-            >
+            app:tabIndicatorHeight="4dp">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"

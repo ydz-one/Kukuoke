@@ -4,43 +4,93 @@
     tools:context="pennapps.com.kukuoke.MainActivity">
 
 
+    <item
+        android:id="@+id/action_image"
+        android:checkable="true"
+        android:icon="@mipmap/ic_vinyl_logo"
+        android:iconTint="@color/lightGrey"
+        android:orderInCategory="0"
+        android:title="Search"
+        app:showAsAction="always"></item>
+
+    <!-- any with black icon is a placeholder -->
 
     <item
         android:id="@+id/action_home"
-        android:orderInCategory="0"
+        android:orderInCategory="100"
         android:title="Search"
-        android:icon="@mipmap/ic_vinyl_logo"
-        android:iconTint="@color/lightGrey"
-        app:showAsAction="always"
-        ></item>
+        android:icon="@drawable/ic_triangle_black"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
 
+    <item
+        android:id="@+id/action_text"
+        android:checkable="false"
+        android:icon="@drawable/ic_triangle_black"
+        android:iconTint="@color/black"
+        android:orderInCategory="300"
+        android:title="Search"
+        app:showAsAction="always"></item>
 
+    <item
+        android:id="@+id/action_bar_title"
+        android:orderInCategory="400"
+        android:title="Search"
+        android:icon="@drawable/ic_rectangle_icon"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
 
+    <item
+        android:id="@+id/action_bar_root"
+        android:orderInCategory="100"
+        android:title="Search"
+        android:icon="@drawable/ic_triangle_black"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
+
+    <item
+        android:id="@+id/action_mode_bar"
+        android:orderInCategory="100"
+        android:title="Search"
+        android:icon="@drawable/ic_triangle_black"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
+
+    <!-- visible icons below -->
 
     <item
         android:id="@+id/action_user"
-        android:orderInCategory="100"
+        android:orderInCategory="600"
         android:title="Search"
         android:icon="@drawable/ic_group_icon"
-        android:iconTint="@color/lightGrey"
-        app:showAsAction="always"
-        ></item>
-
-    <item
-        android:id="@+id/action_search"
-        android:orderInCategory="00"
-        android:title="User"
-        android:icon="@drawable/ic_search_icon"
         android:iconTint="@color/lightGrey"
         app:showAsAction="always"></item>
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="-100"
-        android:title="@string/action_settings"
+        android:checkable="true"
         android:icon="@drawable/ic_settings_icon"
         android:iconTint="@color/lightGrey"
+        android:orderInCategory="700"
+        android:title="@string/action_settings"
         app:showAsAction="always" />
 
+    <!-- invisible icons -->
 
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="700"
+        android:title="User"
+        android:icon="@drawable/ic_rectangle_icon"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
+
+
+    <item
+        android:id="@+id/action_bar"
+        android:orderInCategory="700"
+        android:title="User"
+        android:icon="@drawable/ic_rectangle_icon"
+        android:iconTint="@color/black"
+        app:showAsAction="always"></item>
 </menu>

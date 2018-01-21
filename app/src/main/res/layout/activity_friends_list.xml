@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="pennapps.com.kukuoke.SettingsActivity">
+
+    <TextView
+        android:id="@+id/friendstitle"
+        android:text="FRIENDS"
+        android:textSize="20dp"
+        android:textColor="@color/hotPink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
+
+    <ListView
+        android:id="@+id/lv_friendslist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/friendstitle"></ListView>
+
+    <Button
+        android:id="@+id/btn_friend_duet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="find songs in common"
+        android:textColor="@color/green"
+        android:textColorHighlight="@color/yellow"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/lv_friendslist"/>
+
+</android.support.constraint.ConstraintLayout>

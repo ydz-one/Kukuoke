@@ -1,3 +1,4 @@
+package pennapps.com.kukuoke;
 
 /**
  * Tester class for DuetFinder

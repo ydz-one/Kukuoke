@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Singleton class to store all songs for the user.
+ * Class that holds the songs of one user.
+ * It used to be a Singleton class but had to be repurposed for pennapps demo purposes.
+ * Will be replaced by Firebase data.
  * Created by zyud on 1/20/2018.
  */
 
@@ -22,7 +24,7 @@ public class UserSongs {
     /**
      * private constructor for Singleton class.
      */
-    private UserSongs(){
+    public UserSongs(){
         List<JSONObject> tab1Songs = new ArrayList<>();
         List<JSONObject> tab2Songs = new ArrayList<>();
         List<JSONObject> tab3Songs = new ArrayList<>();
@@ -43,14 +45,19 @@ public class UserSongs {
             newSong.put("name", songName);
             newSong.put("artist", artistName);
 
-//            for (List<JSONObject> list : allUserSongs){
-//                int resultIndex = listContainsSong(list, newSong);
-//                if (resultIndex > 0){
-//                    Toast.makeText(context, "Song already exists in your lists!",
-//                            Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//            }
+            int tabIndex = tabNum - 1;
+            allUserSongs.get(tabIndex).add(newSong);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addSong(String songName, String artistName, int tabNum){
+        try {
+            JSONObject newSong = new JSONObject();
+            newSong.put("name", songName);
+            newSong.put("artist", artistName);
+
             int tabIndex = tabNum - 1;
             allUserSongs.get(tabIndex).add(newSong);
         } catch (JSONException e){

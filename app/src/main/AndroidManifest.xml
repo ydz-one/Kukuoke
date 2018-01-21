@@ -28,6 +28,8 @@
         <activity android:name=".DisplaySongActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".FriendsActivity"></activity>
+        <activity android:name=".FriendsListActivity"/>
+        <activity android:name=".DuetSongsActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="pennapps.com.kukuoke.SettingsActivity">
+
+    <TextView
+        android:id="@+id/duettitle"
+        android:text="GOOD SONGS IN COMMON"
+        android:textSize="20dp"
+        android:textColor="@color/hotPink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
+
+    <ListView
+        android:id="@+id/lv_duetlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/duettitle"></ListView>
+
+</android.support.constraint.ConstraintLayout>

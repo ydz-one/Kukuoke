@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_image:
                 return true;
             case R.id.action_user:
-                Intent intent2 = new Intent(MainActivity.this, FriendsActivity.class);
+                Intent intent2 = new Intent(MainActivity.this, FriendsListActivity.class);
                 startActivity(intent2);
                 return true;
             default:
@@ -152,20 +152,6 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
             // Show 3 total pages.
             return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch(position) {
-                case 0:
-                    return "Contacts";
-                case 1:
-                    return "Chat";
-                case 2:
-                    return "Online";
-                default:
-                    return null;
-            }
         }
     }
 }

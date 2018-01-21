@@ -130,7 +130,7 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(intent1);
                 return true;
             case R.id.action_user:
-                Intent intent2 = new Intent(SettingsActivity.this, FriendsActivity.class);
+                Intent intent2 = new Intent(SettingsActivity.this, FriendsListActivity.class);
                 startActivity(intent2);
                 return true;
             default:

@@ -1,3 +1,5 @@
+package pennapps.com.kukuoke;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,6 +11,8 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import pennapps.com.kukuoke.UserSongs;
 
 /**
  * Class to find songs that match friends' song lists for possible pairings 
@@ -67,6 +71,7 @@ public class DuetFinder {
 	private List<String> rankedBothSongsArtist = new ArrayList<>();
 	
 	private UserSongs me;
+
 	private UserSongs friend1;
 	private UserSongs friend2;
 	private UserSongs friend3;
@@ -402,9 +407,7 @@ public class DuetFinder {
 				continue;
 			}
 		}
-		
 	}
-	
 	
 	/**
 	 * Helper function that finds matches based on predefined Sets

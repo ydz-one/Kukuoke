@@ -25,7 +25,6 @@
         app:layout_constraintTop_toBottomOf="@+id/chickenIconGlow"
         android:layout_marginTop="20px"
         android:textSize="80px"
-        android:text="olivia"
         />
 
     <TextView
@@ -37,7 +36,6 @@
         app:layout_constraintTop_toBottomOf="@+id/usersNameText"
         android:layout_marginTop="20px"
         android:textSize="80px"
-        android:text="olivia@gmail.com"
         />
 
     <Button

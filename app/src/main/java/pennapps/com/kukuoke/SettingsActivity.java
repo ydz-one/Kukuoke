@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +23,20 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -31,6 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private ImageView mChickenIconGlow;
     private Button mSignOutButton;
+
     private TextView mUsersName;
     private TextView mUsersEmail;
 
@@ -40,6 +55,25 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         mChickenIconGlow = (ImageView) findViewById(R.id.chickenIconGlow);
+
+        //String usersId = FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child(name);
+        FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String usersName = snapshot.child(MainActivity.FBU.getUid()).child("name").getValue().toString();
+                mUsersName = (TextView) findViewById(R.id.usersNameText);
+                mUsersName.setText(usersName);
+
+                String usersEmail = snapshot.child(MainActivity.FBU.getUid()).child("email").getValue().toString();
+                mUsersEmail = (TextView) findViewById(R.id.usersEmailText);
+                mUsersEmail.setText(usersEmail);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
         mUsersName = (TextView) findViewById(R.id.usersNameText);
         mUsersEmail = (TextView) findViewById(R.id.usersEmailText);
 

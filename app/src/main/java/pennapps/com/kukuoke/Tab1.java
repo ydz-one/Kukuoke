@@ -95,7 +95,6 @@ public class Tab1 extends Fragment {
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            System.out.println(String.valueOf(item.getItemId()));
             if (selectedItem >= 0) {
                 switch(item.getItemId()) {
                     case 0:

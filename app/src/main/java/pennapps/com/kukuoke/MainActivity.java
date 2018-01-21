@@ -1,5 +1,6 @@
 package pennapps.com.kukuoke;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
@@ -92,14 +93,29 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        //int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+//        if (id == R.id.action_settings) {
+//            Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
+//            intent1.putExtra("uid", FBU.getUid());
+//            startActivity(intent1);
+//            return true;
+//        }
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
+                intent1.putExtra("uid", FBU.getUid());
+                startActivity(intent1);
+                return true;
+            case R.id.action_home:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+//        return super.onOptionsItemSelected(item);
     }
 
     /**

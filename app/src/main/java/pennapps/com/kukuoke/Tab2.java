@@ -30,7 +30,6 @@ public class Tab2 extends Fragment {
     public static CustomListAdapter claTab2;
     private boolean multiSelect = false;
     private int selectedItem;
-    private LinearLayout linearLayoutListViewItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,11 +46,9 @@ public class Tab2 extends Fragment {
 
         selectedItem = -1;
 
-        claTab2 = new CustomListAdapter(getActivity(), userSongs.getList(tabNum));
+        claTab2 = new CustomListAdapter(getActivity(), userSongs.getList(tabNum), R.layout.listview_row);
         listView = (ListView) rootView.findViewById(R.id.lv_tab2);
         listView.setAdapter(claTab2);
-
-        linearLayoutListViewItem = (LinearLayout) rootView.findViewById(R.id.ll_listview_item);
 
         View footerView =  ((LayoutInflater)getContext().getSystemService(getContext()
                 .LAYOUT_INFLATER_SERVICE)).inflate(R.layout.footer, null, false);

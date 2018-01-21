@@ -26,8 +26,10 @@ public class CustomListAdapter extends ArrayAdapter {
     //to store the list of songs
     private final List<JSONObject> songs;
 
+    private int resource;
 
-    public CustomListAdapter(Activity context, List<JSONObject> songs){
+
+    public CustomListAdapter(Activity context, List<JSONObject> songs, int resource){
 
         // in actual implementation, use a different array than songArray, because there can be
         // different songs with the same name
@@ -35,11 +37,12 @@ public class CustomListAdapter extends ArrayAdapter {
 
         this.context = context;
         this.songs = songs;
+        this.resource = resource;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.listview_row, null,true);
+        View rowView=inflater.inflate(resource, null,true);
 
         //this code gets references to objects in the listview_row.xml file
         TextView songTextField = (TextView) rowView.findViewById(R.id.tv_song_name);

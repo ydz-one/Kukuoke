@@ -49,6 +49,7 @@ public class AddSongActivity extends AppCompatActivity {
         trackSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ll.removeAllViews();
                 String trackName = trackSearch.getText().toString();
                 try {
                     final JSONArray ja = new TrackSearchJob().execute(trackName).get();
@@ -61,7 +62,6 @@ public class AddSongActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-
                     for (int i = 0; i < ja.length(); i++) {
                         TextView tv = new TextView(getApplicationContext());
                         try {

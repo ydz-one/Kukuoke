@@ -7,7 +7,7 @@ The name "Kukuoke" is a portmanteau of the words "karaoke" and "kuku", which mea
 
 We did not use any external graphical assets to make this app. Thanks to our talented teammate Olivia, we were able to get our own amazing logo, icons, and illustrations!
 
-**Please note that because this app was made in the span of 36 hours, the code may not be well documented or clean, and not all features work perfectly.** That being said, bear with us, and enjoy the pretty pictures! :)
+**Please note that because this app was made in the span of 36 hours, the code may not be well documented or clean, and not all features work perfectly.** That being said, please bear with us for now and enjoy the pretty interface! We will improve the code in the upcoming weeks/months.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/zyud/Kukuoke/master/graphics/screenshots1-white-fixed.png" width="600"/>

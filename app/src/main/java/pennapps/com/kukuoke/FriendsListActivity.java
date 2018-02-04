@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static pennapps.com.kukuoke.Tab1.claTab1;
@@ -41,9 +43,9 @@ public class FriendsListActivity extends AppCompatActivity {
 
     private ListView listViewFriends;
     private FriendsListAdapter fla;
-    private List<String> friendNames;
-    private List<Integer> friendIds;
     private Button duetBtn;
+    private Button searchBtn;
+    private final List<String> friendNames = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,26 +53,67 @@ public class FriendsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friends_list);
 
         duetBtn = findViewById(R.id.btn_friend_duet);
-        friendNames = new ArrayList<>();
-        friendIds = new ArrayList<>();
 
-        friendNames.add("Alice");
-        friendNames.add("Olivia");
-        friendNames.add("Felix");
+        final List<String> friendNames = new ArrayList<>();
 
-        friendIds.add(0);
-        friendIds.add(1);
-        friendIds.add(2);
+        FirebaseDatabase.getInstance().getReference().child("users").child(MainActivity.FBU.getUid()).child("friends").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot ds) {
+                Iterator<DataSnapshot> itr = ds.getChildren().iterator();
+                while (itr.hasNext()) {
+                    final String s = itr.next().getValue().toString();
 
-        fla = new FriendsListAdapter(this, friendNames, R.layout.listview_row_friends);
-        listViewFriends = (ListView) findViewById(R.id.lv_friendslist);
-        listViewFriends.setAdapter(fla);
+                    FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot ds1) {
+                            Iterator<DataSnapshot> itr1 = ds1.getChildren().iterator();
+                            while (itr1.hasNext()) {
+                                DataSnapshot ds = itr1.next();
+                                final String uid = ds.child("uid").getValue().toString();
+                                if (uid.equals(s)) {
+                                    Log.d("UID is ", uid);
+                                    Log.d("S is ", s);
+                                    Object objName = ds.child("name").getValue();
+                                    Object objEmail = ds.child("email").getValue();
+                                    friendNames.add(objName.toString() + " " + objEmail.toString());
+                                }
+                            }
+
+                            fla = new FriendsListAdapter(FriendsListActivity.this, friendNames, R.layout.listview_row_friends);
+                            listViewFriends = (ListView) findViewById(R.id.lv_friendslist);
+                            listViewFriends.setAdapter(fla);
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         duetBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), DuetSongsActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+        searchBtn = (Button) findViewById(R.id.searchFriends);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FriendsListActivity.this, FriendsActivity.class);
                 startActivity(i);
             }
         });
